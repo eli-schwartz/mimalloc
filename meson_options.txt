@@ -1,0 +1,20 @@
+option('secure', type: 'boolean', value: false, description: 'Use full security mitigations (like guard pages, allocation randomization, double-free mitigation, and free-list corruption detection)')
+option('debug_full', type: 'boolean', value: false, description: 'Use full internal heap invariablt checking in DEBUG mode (expensive)')
+option('padding', type: 'boolean', value: true, description: 'Enable padding to detect heap block overflow (used only in DEBUG mode or with Valgrind)')
+option('override', type: 'boolean', value: true, description: 'Override the standard malloc interface (e.g. define entry points for malloc() etc)')
+option('xmalloc', type: 'boolean', value: false, description: 'Enable abort() call on memory allocation failure by default')
+option('show_errors', type: 'boolean', value: false, description: 'Show error and warning messages by default (only enabled by default in DEBUG mode)')
+option('valgrind', type: 'feature', value: 'disabled', description: 'Compile with Valgrind support (adds a small overhead)')
+option('use_cxx', type: 'boolean', value: false, description: 'Use the C++ compiler to compile the library (instead of the C compiler)')
+option('see_asm', type: 'boolean', value: false, description: 'Generate assembly files')
+
+
+option('osx_interpose', type: 'boolean', value: true, description: 'Use interpose to override standard malloc on macOS')
+option('osx_zone', type: 'boolean', value: true, description: 'Use malloc zone to override standard malloc on macOS')
+option('win_redirect', type: 'boolean', value: true, description: 'Use redirection module (mimalloc-redirect) on Windows if compiling mimalloc as a DLL')
+option('local_dynamic_tls', type: 'boolean', value: false, description: 'Use slightly slower, dlopen-compatible TLS mechanism (Unix)')
+option('build_tests', type: 'boolean', value: true, description: 'Build test executables')
+option('skip_collect_on_exit', type: 'boolean', value: false, description: 'Skip collecting memory on program exit')
+
+# deprecated options
+option('use_libatomic', type: 'boolean', value: false, description: 'Explicitly link with -latomic (on older systems) (deprecated and detected automatically)')
